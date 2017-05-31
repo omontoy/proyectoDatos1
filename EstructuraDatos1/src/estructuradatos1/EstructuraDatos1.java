@@ -27,4 +27,13 @@ public class EstructuraDatos1 {
         return -1;
     }
     
+    public static int buscarEstudiante(String s, String c, String e){
+        int bSem=buscarSemestre(s);
+        int bCur=buscarCurso(s, c);
+        for(int i=0; i<semestres.get(bSem).getSecond().get(bCur).getSecond().size(); i++){
+            if(semestres.get(bSem).getSecond().get(bCur).getSecond().get(i).getFirst().equals(e)) return i;
+        }
+        return -1;
+    }
+    
 }
