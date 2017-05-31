@@ -73,6 +73,25 @@ public class EstructuraDatos1 {
             System.out.println("El semestre "+semestre+" no existe.");
         }
     }
+
+    public static void metodo2(String semestre, String estudiante){
+        boolean e=false;
+        int sem=buscarSemestre(semestre);
+        if(sem!=-1){
+            for(int i=0; i<semestres.get(sem).getSecond().size(); i++){
+                for(int j=0; j<semestres.get(sem).getSecond().get(i).getSecond().size(); j++){
+                    if(semestres.get(sem).getSecond().get(i).getSecond().get(j).getFirst().equals(estudiante)){
+                        System.out.print("Curso: "+semestres.get(sem).getSecond().get(i).getFirst());
+                        System.out.println(" --- Nota final: "+semestres.get(sem).getSecond().get(i).getSecond().get(j).getSecond());
+                        e=true;
+                    }
+                }
+            }
+            if(!e) System.out.println("El estudiante "+estudiante+" no existe");
+        }else{
+            System.out.println("El semestre "+semestre+" no existe.");
+        }
+    }
     
     
 }
