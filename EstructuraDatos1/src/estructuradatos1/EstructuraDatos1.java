@@ -131,6 +131,61 @@ public class EstructuraDatos1 {
         }
         //System.out.println("size semestres: " + semestres.size());
     }
+
+    public static void leer(){
+        try(BufferedReader br = new BufferedReader(new FileReader("C:/Users/MONTOYA/Desktop/ProyectoDatos1/notas.txt"))){
+            String linea = br.readLine();
+            while(!linea.isEmpty()){
+                String datos[] = linea.split(";");
+                //System.out.println(datos[2]);
+                String estudiante = datos[0];
+                //System.out.println("pasa");
+                String semestre = datos[1];
+                //System.out.println("pasa");
+                String curso = datos[2];
+                //System.out.println("pasa");
+                String nota = datos[3];
+                //System.out.println("pasa");
+                guardar(semestre, curso, estudiante, nota);
+                //System.out.println("pasa");
+                linea = br.readLine();
+                if(linea == null){
+                    break;
+                }
+            }
+        }catch(IOException e){
+            System.out.println("Error al leer el fichero."+e.getMessage());
+        }
+    }
+    
+    public static void main(String[] args) {
+        leer();
+        Scanner sc = new Scanner(System.in);
+        while(true){
+            System.out.print("INGRESE EL MÉTODO A UTILIZAR: metodo1 ó metodo2 --> ");
+            String metodo = sc.nextLine();
+            if(metodo.equals("metodo1")){
+                System.out.println("------------------");
+                System.out.print("INGRESE EL SEMESTRE: ");
+                String semest = sc.nextLine();
+                System.out.print("INGRESE EL CURSO: ");
+                String curs = sc.nextLine();
+                System.out.println(curs);
+                metodo1(semest, curs);
+                System.out.println("---------------------------------------------");
+            }
+            if(metodo.equals("metodo2")){
+                System.out.println("------------------");
+                System.out.print("INGRESE EL SEMESTRE: ");
+                String semest = sc.nextLine();
+                System.out.print("INGRESE EL ESTUDIANTE: ");
+                String estud = sc.nextLine();
+                metodo2(semest, estud);
+                System.out.println("---------------------------------------------");
+            }
+            if(metodo.equals("salir")) break;
+        }
+    }
     
     
 }
