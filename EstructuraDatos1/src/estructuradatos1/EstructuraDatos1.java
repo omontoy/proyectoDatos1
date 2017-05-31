@@ -35,5 +35,24 @@ public class EstructuraDatos1 {
         }
         return -1;
     }
+
+    public static void printSizes(){
+        System.out.println("semestres: "+semestres.size());
+        System.out.println("cursos: "+semestres.get(0).getSecond().size());
+        System.out.println("estudiantes: "+semestres.get(0).getSecond().get(0).getSecond().size());
+    }
+    
+    public static void imprimir(){
+        for(int i=0; i<semestres.size(); i++){
+            System.out.println("Semetre: " + semestres.get(i).getFirst());
+            for(int j=0; j<semestres.get(i).getSecond().size(); j++){
+                System.out.println("    Curso: "+semestres.get(i).getSecond().get(j).getFirst());
+                for(int k=0; k<semestres.get(i).getSecond().get(j).getSecond().size(); k++){
+                    System.out.print("        Estudiante: "+semestres.get(i).getSecond().get(j).getSecond().get(k).getFirst());
+                    System.out.println(" ----> Nota final: "+semestres.get(i).getSecond().get(j).getSecond().get(k).getSecond());
+                }
+            }
+        }
+    }
     
 }
