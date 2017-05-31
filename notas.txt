@@ -1,0 +1,2 @@
+orlando;20142;fundamentos de programación;5
+marisol;20171;especialización;5
