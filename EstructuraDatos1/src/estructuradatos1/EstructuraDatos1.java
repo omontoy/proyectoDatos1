@@ -93,5 +93,44 @@ public class EstructuraDatos1 {
         }
     }
     
+    public static void guardar(String s, String c, String e, String n){
+        if(semestres.isEmpty()){
+            Pair<String,String> est = new Pair(e,n);
+            ArrayList<Pair<String,String>> cur = new ArrayList<>();
+            cur.add(est);
+            Pair<String,ArrayList<Pair<String,String>>> curs = new Pair(c,cur);
+            ArrayList<Pair<String, ArrayList<Pair<String,String>>>> sem= new ArrayList<>();
+            sem.add(curs);
+            Pair<String, ArrayList<Pair<String, ArrayList<Pair<String,String>>>>> semes = new Pair(s,sem);
+            semestres.add(semes);
+        }else{
+            int bSem=buscarSemestre(s);
+            if(bSem==-1){
+                Pair<String,String> est = new Pair(e,n);
+                ArrayList<Pair<String,String>> cur = new ArrayList<>();
+                cur.add(est);
+                Pair<String,ArrayList<Pair<String,String>>> curs = new Pair(c,cur);
+                ArrayList<Pair<String, ArrayList<Pair<String,String>>>> sem= new ArrayList<>();
+                sem.add(curs);
+                Pair<String, ArrayList<Pair<String, ArrayList<Pair<String,String>>>>> semes = new Pair(s,sem);
+                semestres.add(semes);
+            }else{
+                int bCur=buscarCurso(s, c);
+                if(bCur==-1){
+                    Pair<String,String> est = new Pair(e,n);
+                    ArrayList<Pair<String,String>> cur = new ArrayList<>();
+                    cur.add(est);
+                    Pair<String,ArrayList<Pair<String,String>>> curs = new Pair(c,cur);
+                    semestres.get(bSem).getSecond().add(curs);
+                    //System.out.println("size curso: " + c + " -> " + semestres.get(bSem).getSecond().size());
+                }else{
+                    Pair<String,String> est = new Pair(e,n);
+                    semestres.get(bSem).getSecond().get(bCur).getSecond().add(est);
+                }
+            }
+        }
+        //System.out.println("size semestres: " + semestres.size());
+    }
+    
     
 }
