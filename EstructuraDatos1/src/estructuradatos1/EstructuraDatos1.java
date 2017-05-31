@@ -17,5 +17,14 @@ public class EstructuraDatos1 {
         }
         return -1;
     }
+
+    public static int buscarCurso(String s, String c){
+        int bSem=buscarSemestre(s);
+        for(int i=0; i<semestres.get(bSem).getSecond().size(); i++){
+            //System.out.println(c+"----"+semestres.get(bSem).getSecond().get(i).getFirst());
+            if(semestres.get(bSem).getSecond().get(i).getFirst().equals(c)) return i;
+        }
+        return -1;
+    }
     
 }
