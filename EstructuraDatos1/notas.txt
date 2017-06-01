@@ -1,0 +1,11 @@
+Camilo;20141;fundamentos de programación;50
+Andrea;20141;fundamentos de programación;40
+Juliana;20141;fundamentos de programación;35
+Valeria;20141;fundamentos de programación;38
+Orlando;20141;fundamentos de programación;34
+Daniela;20142;mercadeo;48
+Ana;20142;finanzas;37
+Daniel;20142;cálculo;45
+Melissa;20142;especialización;31
+Daniela;20142;lenguajes de programación;28
+Daniela;20142;compiladores;39
